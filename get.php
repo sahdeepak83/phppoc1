@@ -6,8 +6,8 @@
 	
 	// instantiate token and  object
 		$newToken = new TokenData();
-		$tokenCond = $newToken->matchToken('df25b6586a05b0005ac3f91972b3fe8f');
-		echo json_encode($tokenCond);
+		$gettoken=$_GET['token'];
+		$tokenCond = $newToken->matchToken($gettoken);
 		//check conditions basis of token trure or false
 		if(isset($tokenCond) && $tokenCond=="true"){
        // for check condition basis of urls and redirect to functions
