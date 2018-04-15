@@ -52,6 +52,10 @@
 					  );
 					}
 				}
+	}else{
+		echo json_encode(
+						array("message" => "Unauthorized Token.")
+					  );
 	}
 
  ?>
