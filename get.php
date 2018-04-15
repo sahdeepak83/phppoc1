@@ -13,6 +13,7 @@
 		echo json_encode(
 						array("message" => "Invalid Token Parameter.")
 					  );
+					  return ;
 	}
 		//check conditions basis of token trure or false
 		if(isset($tokenCond) && $tokenCond=="true"){
