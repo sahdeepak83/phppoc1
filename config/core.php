@@ -5,6 +5,8 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
  
+ // Start session
+@session_start();
 // index/Home page url
 $SITEURL="http://localhost:8000/herokuapi/";
  
