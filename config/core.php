@@ -2,7 +2,7 @@
 // show error reporting
   //0 for hide warning errors
   //1 for show all errors
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 error_reporting(E_ALL);
  
  // Start session
