@@ -4,10 +4,10 @@
 	include("response.php");
 	include("token.php");
 	
-	// instantiate token and  objectff
+	// instantiate token and  objectf
 	if(isset($_GET['token'])){
 		$newToken = new TokenData();
-		$gettoken=$_GET['token'];
+		$gettoken=trim($_GET['token']);
 		$tokenCond = $newToken->matchToken($gettoken);
 	}else{
 		echo json_encode(
@@ -16,7 +16,7 @@
 					  return ;
 	}
 		//check conditions basis of token trure or false
-		if(isset($tokenCond) && $tokenCond=="true"){
+	if(isset($tokenCond) && $tokenCond=="true"){
        // for check condition basis of urls and redirect to functions
 	
 			if(isset($_GET['id'])) {
