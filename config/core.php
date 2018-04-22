@@ -1,15 +1,13 @@
 <?php
 // show error reporting
   //0 for hide warning errors
-  //1 for show all errors
+  //1 for show all warning errors
 ini_set('display_errors', 0);
 error_reporting(E_ALL);
  
  // Start session
 @session_start();
-// index/Home page url
-$SITEURL="http://localhost:8000/herokuapi/";
- 
+
 // required headers
 	header("Access-Control-Allow-Origin: *");
 	header("Access-Control-Allow-Headers: access");

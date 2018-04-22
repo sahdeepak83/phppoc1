@@ -42,6 +42,50 @@ class Dbdata {
 	}
 	
 	/*
+	 Function Name: addToken
+	 Params: ID
+	 Created BY:
+	 Created ON : 
+	 Description : post data to db
+    */
+	public function addToken($token) { 
+			
+		// sanitize
+		$token=trim($token);
+ 		$createddate=date('Y-m-d h:i:s');
+        $token_expire=date('Y-m-d H:i',strtotime('5 minutes',strtotime($createddate)));			
+		pg_query("INSERT INTO public.token1(token, token_expire, createddate) VALUES('".$token."', '".$token_expire."', '".$createddate."')");
+	}
+	
+	/*
+	 Function Name: getToken
+	 Params: ID
+	 Created BY:
+	 Created ON : 
+	 Description : get token data from database
+    */
+	public function getToken($token) { 
+		$currentTime=date('Y-m-d h:i:s');
+		$sql = "SELECT * FROM public.token1 WHERE token= '" . trim($token) . "' AND token_expire >='" .$currentTime. "';"; 
+		$queryRecords = pg_query($this->conn, $sql) or die("error to fetch  data");
+		$data = pg_fetch_all($queryRecords);
+		return $data;
+	}
+	
+	/*
+	 Function Name: delToken
+	 Params: ID
+	 Created BY:
+	 Created ON : 
+	 Description : delete token  from database
+    */
+	public function delToken($token) { 
+		
+		$sql = "DELETE FROM public.token1 WHERE token = '".$token."'"; 
+		$queryRecords = pg_query($this->conn, $sql) or die("error to fetch  data");
+	
+	}
+	/*
 	 Function Name: postData
 	 Params: ID
 	 Created BY:

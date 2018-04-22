@@ -2,21 +2,31 @@
 // include core and response files
 	include("config/core.php"); 
 	include("response.php");
-	include("token.php");
+	//include("token.php");
 	
-	// instantiate token and  objectf
+	// instantiate token and  object
 	if(isset($_GET['token'])){
-		$newToken = new TokenData();
+		$newObj = new Dbdata();
 		$gettoken=trim($_GET['token']);
-		$tokenCond = $newToken->matchToken($gettoken);
+		$tokenData = $newObj->getToken($gettoken);
+			if(!empty($tokenData)){
+				foreach($tokenData as $key => $tok) {
+					$tokenVal=$tok;
+				}
+				$matchedToken=$tokenVal['token'];
+			}else{
+				$matchedToken='false';
+			}
+		
 	}else{
 		echo json_encode(
 						array("message" => "Invalid Token Parameter.")
 					  );
 					  return ;
 	}
+	$gettoken=trim($_GET['token']);
 		//check conditions basis of token trure or false
-	if(isset($tokenCond) && $tokenCond=="true"){
+	if(isset($matchedToken) && $matchedToken!="false" && $matchedToken==$gettoken){
        // for check condition basis of urls and redirect to functions
 	
 			if(isset($_GET['id'])) {
@@ -64,6 +74,8 @@
 						array("message" => "Unauthorized Token.")
 					  );
 	}
-
+    //delete token
+	$newObj = new Dbdata();
+	$tokenData = $newObj->delToken($gettoken);
  ?>
 
