@@ -71,7 +71,7 @@
 				}
 	}else{
 		echo json_encode(
-						array("message" => "Unauthorized Token.")
+						array("message" => "Unauthorized Token || Expired Token")
 					  );
 	}
     //delete token
