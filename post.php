@@ -5,7 +5,100 @@ include("config/databasewithsoap.php");
 $db = new dbObj();
 $connString =  $db->getConnstring();
 $conn= $connString;
-$xmlOutput = file_get_contents('php://input');
+$xmlOutput='<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <soapenv:Body>
+  <notifications xmlns="http://soap.sforce.com/2005/09/outbound">
+   <OrganizationId>00Dq0000000Br2GEAS</OrganizationId>
+   <ActionId>04kq00000008PhpAAE</ActionId>
+   <SessionId xsi:nil="true"/>
+   <EnterpriseUrl>https://cs21.salesforce.com/services/Soap/c/43.0/00Dq0000000Br2G</EnterpriseUrl>
+   <PartnerUrl>https://cs21.salesforce.com/services/Soap/u/43.0/00Dq0000000Br2G</PartnerUrl>
+   <Notification>
+    <Id>04lq000000Qb046AAB</Id>
+    <sObject xsi:type="sf:Individual_Tip_Non_Tip_Events__c" xmlns:sf="urn:sobject.enterprise.soap.sforce.com">
+     <sf:Id>a09q0000006BAHkAAO</sf:Id>
+	 <sf:Ammout_Over_Limit_mph__c>0.0</sf:Ammout_Over_Limit_mph__c>
+     <sf:Amount_Over_Limit_Km_h__c>0.0</sf:Amount_Over_Limit_Km_h__c>
+     <sf:Asset_Serial__c>95G022373</sf:Asset_Serial__c>
+     <sf:Asset_Type__c>Trash</sf:Asset_Type__c>
+     <sf:City__c>Irving</sf:City__c>
+     <sf:Collection_Route_Text__c>EZA1F</sf:Collection_Route_Text__c>
+     <sf:Collection_Route__c>a0J61000003D3XrEAK</sf:Collection_Route__c>
+     <sf:Container_RFID_tag__c>0001094C4114149479505765</sf:Container_RFID_tag__c>
+     <sf:Country__c>United States</sf:Country__c>
+     <sf:CreatedById>00561000001xuJFAAY</sf:CreatedById>
+     <sf:CreatedDate>2018-06-02T20:51:34.000Z</sf:CreatedDate>
+	 <sf:CreatedDateOnly__c>3/19/2018</sf:CreatedDateOnly__c>
+     <sf:Customer_Location__c>a0461000009c7IBAAY</sf:Customer_Location__c>
+     <sf:Distance__c>5.534</sf:Distance__c>
+	 <sf:Duration__c>20</sf:Duration__c>
+	 <sf:Error_Code__c>test</sf:Error_Code__c>
+     <sf:Error_Description__c>HarshBraking</sf:Error_Description__c>
+	 <sf:Event_End_Date_Time__c>2018-06-02T21:44:00.000Z</sf:Event_End_Date_Time__c>
+     <sf:Event_End__Latitude__s>45.5527167</sf:Event_End__Latitude__s>
+     <sf:Event_End__Longitude__s>-94.1307667</sf:Event_End__Longitude__s>
+     <sf:Event_Start_Date_Time__c>2017-11-25T11:43:00.000Z</sf:Event_Start_Date_Time__c>
+     <sf:Event_Start_Date__c>2017-11-25</sf:Event_Start_Date__c>
+     <sf:Event_Start_Tip_Date__c>2018-06-02T21:44:00.000Z</sf:Event_Start_Tip_Date__c>
+     <sf:Event_Start__Latitude__s>45.5527167</sf:Event_Start__Latitude__s>
+     <sf:Event_Start__Longitude__s>-94.1307667</sf:Event_Start__Longitude__s>
+     <sf:HarshAcceleration__c>5030396.0</sf:HarshAcceleration__c>
+	 <sf:HarshBrakingInsyncId__c>5029829.0</sf:HarshBrakingInsyncId__c>
+	 <sf:Heading__c>361 N</sf:Heading__c>
+	 <sf:HeartbeatInsyncId__c>5030396.0</sf:HeartbeatInsyncId__c>
+	 <sf:House_Number__c>213</sf:House_Number__c>
+	 <sf:IdleTimeInsyncId__c>1884268.0</sf:IdleTimeInsyncId__c>
+     <sf:InsyncId__c>1884268.0</sf:InsyncId__c>
+     <sf:IsDeleted>false</sf:IsDeleted>
+     <sf:IsLatestTip__c>false</sf:IsLatestTip__c>
+     <sf:Is_GPS_Location__c>0.0</sf:Is_GPS_Location__c>
+     <sf:Is_Tipped_Twice__c>true</sf:Is_Tipped_Twice__c>
+	 <sf:Is_Tip_Mismatched__c>true</sf:Is_Tip_Mismatched__c>
+     <sf:Is_Viewable_On_Map__c>true</sf:Is_Viewable_On_Map__c>
+     <sf:LastModifiedById>00561000001xuJFAAY</sf:LastModifiedById>
+     <sf:LastModifiedDate>2018-06-02T20:51:34.000Z</sf:LastModifiedDate>
+     <sf:LastReferencedDate>2018-06-02T20:52:07.000Z</sf:LastReferencedDate>
+     <sf:LastViewedDate>2018-06-02T20:52:07.000Z</sf:LastViewedDate>
+     <sf:Location_Address__c>719 N Vermont Ave, Lakeland, FL 33801, USA</sf:Location_Address__c>
+     <sf:Max_Speed_Miles_per_hour__c>35.0</sf:Max_Speed_Miles_per_hour__c>
+	 <sf:Name>testheroku2</sf:Name>
+     <sf:ObservationInsyncId__c>5029829.0</sf:ObservationInsyncId__c>
+     <sf:Observation_Description__c>Contamination</sf:Observation_Description__c>
+     <sf:Observation_Number__c>1.0</sf:Observation_Number__c>
+     <sf:Obs_Num_Desc__c>test</sf:Obs_Num_Desc__c>
+     <sf:OwnerId>00561000001xuJFAAY</sf:OwnerId>
+	 <sf:readerEvent__c>test</sf:readerEvent__c>
+     <sf:RecordTypeId>01261000000XuHRAA0</sf:RecordTypeId>
+	 <sf:Responce_JSON__c>test</sf:Responce_JSON__c>
+	 <sf:Service_Provider__c>0016100000diOthAAE</sf:Service_Provider__c>
+     <sf:SFDC_Container_Asset__c>02i61000001Mud9AAC</sf:SFDC_Container_Asset__c>
+     <sf:SFDC_Device_Id__c>a066100000FfGowAAF</sf:SFDC_Device_Id__c>
+     <sf:SFDC_Truck_ID__c>a0O610000072GVBEA2</sf:SFDC_Truck_ID__c>
+     <sf:SpeedingInsyncId__c>5082996.0</sf:SpeedingInsyncId__c>
+	 <sf:State__c>IL</sf:State__c>
+     <sf:Street__c>trula ln</sf:Street__c>
+     <sf:Telematic_Event_Date__c>2016-09-06</sf:Telematic_Event_Date__c>
+	 <sf:Timezone__c>America/Chicago</sf:Timezone__c>
+     <sf:TipNoTipNumber__c>1.0</sf:TipNoTipNumber__c>
+     <sf:Tip_DateTime__c>9/6/2016 9:35:00 AM CDT</sf:Tip_DateTime__c>
+     <sf:Tip_Date_Time__c>2016-09-06T14:35:00.000Z</sf:Tip_Date_Time__c>
+     <sf:Tip_Date__c>2016-09-06</sf:Tip_Date__c>
+     <sf:Tip_hour_range__c>12 AM</sf:Tip_hour_range__c>
+	 <sf:Tip_Hour__c>7.0</sf:Tip_Hour__c>
+     <sf:Tip_Lat_Lon__Latitude__s>28.0511255</sf:Tip_Lat_Lon__Latitude__s>
+     <sf:Tip_Lat_Lon__Longitude__s>-81.9516583</sf:Tip_Lat_Lon__Longitude__s>
+     <sf:Tip_or_Non_Tip__c>true</sf:Tip_or_Non_Tip__c>
+     <sf:Truck_No__c>7183550</sf:Truck_No__c>
+     <sf:Truck_Type__c>Rear-Loader</sf:Truck_Type__c>
+     <sf:Zip_Code__c>60056</sf:Zip_Code__c>
+    </sObject>
+   </Notification>
+  </notifications>
+ </soapenv:Body>
+</soapenv:Envelope>
+';
+//$xmlOutput = file_get_contents('php://input');
 //$xmlOutput = $GLOBALS['HTTP_RAW_POST_DATA'];		
 //Get XML Array 
 $clean_xml=array();
@@ -189,37 +282,19 @@ if(!empty($xmlarray) && $xmlarray!=='no_record'){
 			$query ="INSERT INTO public.individual_tip_non_tip_events__c (Id, Ammout_Over_Limit_mph__c, Amount_Over_Limit_Km_h__c, Asset_Serial__c, Asset_Type__c, City__c, Collection_Route_Text__c, Collection_Route__c, Container_RFID_tag__c, Country__c, CreatedById, CreatedDate, CreatedDateOnly__c, Customer_Location__c, Distance__c, Duration__c, Error_Code__c, Error_Description__c, Event_End_Date_Time__c, Event_End__Latitude__s, Event_End__Longitude__s, Event_Start_Date_Time__c, Event_Start_Date__c , Event_Start_Tip_Date__c, Event_Start__Latitude__s, Event_Start__Longitude__s, HarshAcceleration__c, HarshBrakingInsyncId__c, Heading__c, HeartbeatInsyncId__c, House_Number__c, IdleTimeInsyncId__c, InsyncId__c, IsDeleted, IsLatestTip__c, Is_GPS_Location__c, Is_Tipped_Twice__c, Is_Tip_Mismatched__c, Is_Viewable_On_Map__c, LastModifiedById, LastModifiedDate, LastReferencedDate, LastViewedDate, Location_Address__c, Max_Speed_Miles_per_hour__c, Name, ObservationInsyncId__c, Observation_Description__c, Observation_Number__c, Obs_Num_Desc__c, OwnerId, readerEvent__c, RecordTypeId, Responce_JSON__c, Service_Provider__c, SFDC_Container_Asset__c, SFDC_Device_Id__c, SFDC_Truck_ID__c, SpeedingInsyncId__c, State__c, Street__c, Telematic_Event_Date__c, Timezone__c, TipNoTipNumber__c, Tip_DateTime__c, Tip_Date_Time__c, Tip_Date__c, Tip_hour_range__c, Tip_Hour__c, Tip_Lat_Lon__Latitude__s, Tip_Lat_Lon__Longitude__s, Tip_or_Non_Tip__c, Truck_No__c, Truck_Type__c, Zip_Code__c) VALUES ('".$Id."','".$Ammout_Over_Limit_mph__c."','".$Amount_Over_Limit_Km_h__c."','".$Asset_Serial__c."','".$Asset_Type__c."','".$City__c."','".$Collection_Route_Text__c."','".$Collection_Route__c."','".$Container_RFID_tag__c."','".$Country__c."','".$CreatedById."','".$CreatedDate."','".$CreatedDateOnly__c."','".$Customer_Location__c."','".$Distance__c."','".$Duration__c."','".$Error_Code__c."','".$Error_Description__c."','".$Event_End_Date_Time__c."','".$Event_End__Latitude__s."','".$Event_End__Longitude__s."','".$Event_Start_Date_Time__c."','".$Event_Start_Date__c ."','".$Event_Start_Tip_Date__c."','".$Event_Start__Latitude__s."','".$Event_Start__Longitude__s."','".$HarshAcceleration__c."','".$HarshBrakingInsyncId__c."','".$Heading__c."','".$HeartbeatInsyncId__c."','".$House_Number__c."','".$IdleTimeInsyncId__c."','".$InsyncId__c."','".$IsDeleted."','".$IsLatestTip__c."','".$Is_GPS_Location__c."','".$Is_Tipped_Twice__c."','".$Is_Tip_Mismatched__c."','".$Is_Viewable_On_Map__c."','".$LastModifiedById."','".$LastModifiedDate."','".$LastReferencedDate."','".$LastViewedDate."','".$Location_Address__c."','".$Max_Speed_Miles_per_hour__c."','".$Name."','".$ObservationInsyncId__c."','".$Observation_Description__c."','".$Observation_Number__c."','".$Obs_Num_Desc__c."','".$OwnerId."','".$readerEvent__c."','".$RecordTypeId."','".$Responce_JSON__c."','".$Service_Provider__c."','".$SFDC_Container_Asset__c."','".$SFDC_Device_Id__c."','".$SFDC_Truck_ID__c."','".$SpeedingInsyncId__c."','".$State__c."','".$Street__c."','".$Telematic_Event_Date__c."','".$Timezone__c."','".$TipNoTipNumber__c."','".$Tip_DateTime__c."','".$Tip_Date_Time__c."','".$Tip_Date__c."','".$Tip_hour_range__c."','".$Tip_Hour__c."','".$Tip_Lat_Lon__Latitude__s."','".$Tip_Lat_Lon__Longitude__s."','".$Tip_or_Non_Tip__c."','".$Truck_No__c."','".$Truck_Type__c."','".$Zip_Code__c."')";
 			$queryRecords = pg_query($conn, $query) or die("error to save  data");
 			if(!empty($queryRecords)){
-				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-				<soapenv:Body>
-				<notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound">
-				<Ack>true</Ack>
-				</notificationsResponse>
-				</soapenv:Body>
-				</soapenv:Envelope>';
+				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 			}else{
-				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-				<soapenv:Body>
-				<notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound">
-				<Ack>true</Ack>
-				</notificationsResponse>
-				</soapenv:Body>
-				</soapenv:Envelope>';
+				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 			}
 			 
 			}
 		}
-		//header('Content-type: text/xml');
+		header('Content-type: text/xml');
 	    echo $XML;
 		}
 	}else{
-			$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-			<soapenv:Body>
-			<notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound">
-			<Ack>true</Ack>
-			</notificationsResponse>
-			</soapenv:Body>
-			</soapenv:Envelope>';
-			//header('Content-type: text/xml');
+			$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
+			header('Content-type: text/xml');
 	        echo $XML;
 		}
 
