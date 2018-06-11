@@ -8,8 +8,8 @@ $conn= $connString;
 $xmlOutput = file_get_contents('php://input');
 
 //for save xml get data
-$querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$xmlOutput."')";
-			 pg_query($conn, $querytest) or die("error to save  data"); 
+//$querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$xmlOutput."')";
+			 //pg_query($conn, $querytest) or die("error to save  data"); 
 
 //Get XML Array 
 $clean_xml=array();
@@ -183,7 +183,7 @@ if(!empty($xmlarray) && $xmlarray!=='no_record'){
 				if(!empty($queryRecordsSingle)){
 					$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 				}else{
-					$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
+					$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>false</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 				}
 			}
 				
@@ -349,7 +349,7 @@ if(!empty($xmlarray) && $xmlarray!=='no_record'){
 			if(!empty($queryRecords)){
 				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 			}else{
-				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
+				$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>false</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 			}
 			 
 			}
@@ -358,7 +358,7 @@ if(!empty($xmlarray) && $xmlarray!=='no_record'){
 	    echo $XML;
 		}
 	}else{
-			$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>true</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
+			$XML = '<?xml version="1.0" encoding="utf-8"?><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><notificationsResponse xmlns="http://soap.sforce.com/2005/09/outbound"><Ack>false</Ack></notificationsResponse></soapenv:Body></soapenv:Envelope>';
 			header('Content-type: text/xml');
 	        echo $XML;
 		}
