@@ -208,7 +208,7 @@ if(!empty($xmlarray) && $xmlarray!=='no_record'){
 			 
 			}
 		}
-		header('Content-type: text/xml');
+		//header('Content-type: text/xml');
 	    echo $XML;
 		}
 	}else{
@@ -219,7 +219,7 @@ if(!empty($xmlarray) && $xmlarray!=='no_record'){
 			</notificationsResponse>
 			</soapenv:Body>
 			</soapenv:Envelope>';
-			header('Content-type: text/xml');
+			//header('Content-type: text/xml');
 	        echo $XML;
 		}
 
