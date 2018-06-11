@@ -7,19 +7,6 @@ $connString =  $db->getConnstring();
 $conn= $connString;
 $xmlOutput = file_get_contents('php://input');
 //$xmlOutput = $GLOBALS['HTTP_RAW_POST_DATA'];		
-	       $subject = "xmlOutpur"; 
-	      $message ="
-                          Message : \"$xmlOutput\"
-                          <br/><br/>";
-						   
-						$toEmail = "psupraja2101@gmail.com";;
-                        $from = "sahsuraj@gmail.com";
-                        $headers = "From: " . strip_tags($from) . "\r\n";
-						$headers .= "CC: sahdeepak83@gmail.com\r\n";
-                        //$headers .= "Reply-To: ".strip_tags($email) . "\r\n"; 
-                        $headers .= "MIME-Version: 1.0\r\n"; 
-                        $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-                        $ok = mail($toEmail, $subject, $message,$headers);	
 //Get XML Array 
 $clean_xml=array();
 $clean_xml = str_ireplace(['soapenv:', 'SOAP:'], '', $xmlOutput);
