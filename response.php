@@ -54,7 +54,7 @@ class Dbdata {
 		$token=trim($token);
  		$createddate=date('Y-m-d h:i:s');
         $token_expire=date('Y-m-d H:i',strtotime('5 minutes',strtotime($createddate)));			
-		pg_query("INSERT INTO public.token1(token, token_expire, createddate) VALUES('".$token."', '".$token_expire."', '".$createddate."')");
+		pg_query("INSERT INTO public.token(token, token_expire, createddate) VALUES('".$token."', '".$token_expire."', '".$createddate."')");
 	}
 	
 	/*
@@ -66,7 +66,7 @@ class Dbdata {
     */
 	public function getToken($token) { 
 		$currentTime=date('Y-m-d h:i:s');
-		$sql = "SELECT * FROM public.token1 WHERE token= '" . trim($token) . "' AND token_expire >='" .$currentTime. "';"; 
+		$sql = "SELECT * FROM public.token WHERE token= '" . trim($token) . "' AND token_expire >='" .$currentTime. "';"; 
 		$queryRecords = pg_query($this->conn, $sql) or die("error to fetch  data");
 		$data = pg_fetch_all($queryRecords);
 		return $data;
@@ -81,9 +81,22 @@ class Dbdata {
     */
 	public function delToken($token) { 
 		
-		$sql = "DELETE FROM public.token1 WHERE token = '".$token."'"; 
+		$sql = "DELETE FROM public.token WHERE token = '".$token."'"; 
 		$queryRecords = pg_query($this->conn, $sql) or die("error to fetch  data");
 	
+	}
+	 /*
+	 Function Name: getAllWithQuery
+	 Params: NULL
+	 Created BY:
+	 Created ON : 
+	 Description : get all data using query from json request
+    */
+	public function getAllWithQuery($queryData) { 
+		$sql = $queryData;
+		$queryRecords = pg_query($this->conn, $sql) or die("error to fetch  data");
+		$data = pg_fetch_all($queryRecords);
+		return $data;
 	}
 	/*
 	 Function Name: postData
