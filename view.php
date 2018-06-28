@@ -1,5 +1,4 @@
 <?php
-// include core and response files
 include("config/core.php"); 
 include("config/database.php");
 	$db = new dbObj();
