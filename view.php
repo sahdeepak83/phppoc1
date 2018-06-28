@@ -1,6 +1,10 @@
 <?php
 include("config/databasewithsoap.php");
-	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
+	//$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
+	$jsonD='{
+				"token": "1609dd95b29704c37faebf92a64fcde6",
+				"query": "Select id,name from public.individual_tip_non_tip_events__c where name"
+			}';
 	$jsonResult=json_decode($jsonD,true); 
 	if(!empty($jsonResult)){
 		$db = new dbObj();
@@ -8,15 +12,16 @@ include("config/databasewithsoap.php");
 		$conn= $connString;
 	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$jsonD."')";
 	  $queryRecord=pg_query($conn, $querytest);
+		if(!empty($queryRecord)){
+			$message="The item has been saved";	
+		}else{
+		   $message="The item could not be saved";	
+		}
+	}else{
+		$message="Invalid Data";
+	}
 	
-	if(!empty($queryRecord)){
-		$message['Message']="The item has been saved";	
-	}else{
-	   $message['Message']="The item could not be saved";	
-	}
-	}else{
-		$message['Data']['Message']="Invalid Data";
-	}
-	    $json_result=json_encode($message);
-		return htmlspecialchars_decode($json_result, ENT_QUOTES);				   
+	    echo json_encode(
+						array("message" => $message)
+					  );;			   
 	?>
