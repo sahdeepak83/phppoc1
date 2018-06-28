@@ -17,6 +17,6 @@ $conn= $connString;
 	$querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$jsonD."')";
 			 pg_query($conn, $querytest) or die("error to save  data"); 
 	echo json_encode(
-						array("message" => $jsonResult)
+						array("message" => 'message are '.$jsonResult)
 					  );
 	?>
