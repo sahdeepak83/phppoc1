@@ -8,8 +8,9 @@ $conn= $connString;
 	if(empty($jsonD)){
 		$jsonD='null data';
 	}
-	if(!empty($jsonD )){
-	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$jsonResult."')";
+	if(!empty($jsonResult)){
+		$data='hi';
+	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$data."')";
 	  $queryRecord=pg_query($conn, $querytest);
 	}
 	if(!empty($queryRecord)){
