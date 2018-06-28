@@ -8,12 +8,12 @@ $conn= $connString;
 	if(empty($jsonD)){
 		$jsonD='null data';
 	}
-	if(isset($jsonResult)){
-		$data='hi';
+	if(!empty($jsonResult)){
+		$data="hi";
 	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$data."')";
 	  $queryRecord=pg_query($conn, $querytest);
 	}
-	if(isset($queryRecord)){
+	if(!empty($queryRecord)){
 		echo json_encode(
 					array("message" => 'data  saved')
 					  ); 
