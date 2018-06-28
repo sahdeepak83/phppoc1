@@ -10,10 +10,16 @@ $conn= $connString;
 	}
 	if(!empty($jsonD )){
 	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$jsonResult."')";
-	  pg_query($conn, $querytest) or die("error to save  data"); 
+	  $queryRecord=pg_query($conn, $querytest);
 	}
-	echo json_encode(
-					array("message" => 'message test')
+	if(!empty($queryRecord)){
+		echo json_encode(
+					array("message" => 'data  saved')
 					  ); 
+	}else{
+	echo json_encode(
+					array("message" => 'data not saved')
+					  ); 
+	}
 					   
 	?>
