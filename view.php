@@ -1,5 +1,5 @@
 <?php
-include("config/database.php");
+include("config/databasewithsoap.php");
 $db = new dbObj();
 $connString =  $db->getConnstring();
 $conn= $connString;
