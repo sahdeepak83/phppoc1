@@ -3,7 +3,7 @@ include("config/database.php");
 $db = new dbObj();
 $connString =  $db->getConnstring();
 $conn= $connString;
-	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];	
+	$jsonD = file_get_contents('php://input');
 	$jsonResult=json_decode($jsonD,true);
 	if(!empty($jsonD )){
 	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$jsonD."')";
