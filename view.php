@@ -1,5 +1,5 @@
 <?php
-include("config/database.php");
+include("config/databasewithsoap.php");
 	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
 	$jsonResult=json_decode($jsonD,true); 
 	if(!empty($jsonResult)){
@@ -8,15 +8,15 @@ include("config/database.php");
 		$conn= $connString;
 	  $querytest ="INSERT INTO public.api_call (xmlformat) VALUES ('".$jsonD."')";
 	  $queryRecord=pg_query($conn, $querytest);
-	}
+	
 	if(!empty($queryRecord)){
-		echo json_encode(
-					array("message" => 'data  saved')
-					  ); 
+		$message['Message']="The item has been saved";	
 	}else{
-	echo json_encode(
-					array("message" => 'data not saved')
-					  ); 
+	   $message['Message']="The item could not be saved";	
 	}
-					   
+	}else{
+		$message['Data']['Message']="Invalid Data";
+	}
+	    $json_result=json_encode($message);
+		return htmlspecialchars_decode($json_result, ENT_QUOTES);				   
 	?>
