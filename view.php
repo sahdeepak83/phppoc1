@@ -1,5 +1,9 @@
 <?php
-include("config/core.php"); 
+header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Headers: access, Content-Type");
+	header("Access-Control-Allow-Methods: GET, POST");
+	header("Access-Control-Allow-Credentials: true");
+	header('Content-Type: application/json'); 
 include("config/databasewithsoap.php");
 	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
 	$jsonResult=json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $jsonD), true );
