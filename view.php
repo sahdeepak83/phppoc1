@@ -4,7 +4,6 @@ include("config/databasewithsoap.php");
 	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
 	$jsonResult=json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $jsonD), true );
 echo json_encode(array("$jsonD" => $jsonD));
-echo json_encode(array("$jsonResult" => $jsonResult));
 	if(!empty($jsonResult)){
 		$db = new dbObj();
 		$connString =  $db->getConnstring();
