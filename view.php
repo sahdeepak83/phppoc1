@@ -1,5 +1,5 @@
 <?php
-include("config/databasewithsoap.php");
+include("config/database.php");
 	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
 	$jsonResult=json_decode($jsonD,true); 
 	if(!empty($jsonResult)){
