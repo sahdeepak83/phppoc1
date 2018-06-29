@@ -53,7 +53,7 @@
 					}
 				
 			}
-	else{
+	}else{
 		echo json_encode(
 						array("message" => "Unauthorized Token || Expired Token")
 					  );
