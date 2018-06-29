@@ -1,6 +1,6 @@
 <?php
 include("config/core.php"); 
-include("config/databasewithsoap.php");
+include("config/database.php");
 	$jsonD = $GLOBALS['HTTP_RAW_POST_DATA'];
 	$jsonResult=json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $jsonD), true );
 	if(!empty($jsonResult)){
