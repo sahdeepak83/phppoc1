@@ -7,6 +7,3 @@
     RewriteRule ^(.+)\.php$ https://phppoc12.herokuapp.com//$1 [R=301,L]
     # Resolve .php file for extensionless php urls
     RewriteRule ^([^/.]+)$ $1.php [L]
-    <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-</IfModule>
