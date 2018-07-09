@@ -49,7 +49,6 @@ class Dbdata {
 	 Description : post data to db
     */
 	public function addToken($token) { 
-			
 		// sanitize
 		$token=trim($token);
  		$createddate=date('Y-m-d h:i:s');
