@@ -9,6 +9,4 @@ include("response.php");
 	//save token to db
 	$newObj = new Dbdata();
 	$emps = $newObj->addToken($token);		
-
-   
 ?>
