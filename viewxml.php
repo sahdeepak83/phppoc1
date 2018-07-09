@@ -35,7 +35,7 @@ if(!empty($xml)){
 	}
 	$gettoken=trim($xml->token);
 	//check conditions basis of token trure or false
-	echo $matchedToken.' getoken '.$gettoken;die;
+	
 	if(isset($matchedToken) && $matchedToken!="false" && $matchedToken==$gettoken){
        // for check condition basis of urls and redirect to functions
 	  // instantiate database and  object
