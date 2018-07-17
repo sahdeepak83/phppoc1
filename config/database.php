@@ -27,9 +27,6 @@ Class dbObj{
 			  );
 			exit();
 		} else {
-			echo json_encode(
-				array("Data2-> $servername , $username , $password , $dbname , $port , $sslmode")
-			  );
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
