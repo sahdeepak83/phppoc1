@@ -34,6 +34,8 @@ Class dbObj{
 			  );
 			exit();
 		} else {
+			 echo json_encode(array("message" => "Connection success")
+			  );
 			$this->conn = $con;
 		}
 		 // pg_close($con);
