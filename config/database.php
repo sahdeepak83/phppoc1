@@ -21,6 +21,9 @@ Class dbObj{
 	}*/
 	
 	$parts = parse_url($_ENV["DATABASE_URL"]);
+	echo json_encode(
+				array("$parts")
+			  );
 	var $servername = $parts['host'];
 	var $username = $parts['user'];
 	var $password = $parts['pass'];
@@ -51,6 +54,9 @@ Class dbObj{
 			  );
 			exit();
 		} else {
+			echo json_encode(
+				array("$parts")
+			  );
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
