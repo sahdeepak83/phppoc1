@@ -28,6 +28,9 @@ Class dbObj{
 	var $port = $parts['port'];
 	var $sslmode= "require";
 	var $conn;
+	echo json_encode(
+				array("Data0-> $servername , $username , $password , $dbname , $port , $sslmode")
+			  );
 	  /*
 	 Function Name: getConnstring
 	 Params: NULL
@@ -36,6 +39,9 @@ Class dbObj{
 	 Description : connection for Postgres server in Heroku
     	*/
 	function getConnstring() { 
+		echo json_encode(
+				array("Data1-> $servername , $username , $password , $dbname , $port , $sslmode")
+			  );
 		$con = pg_connect("host=".$this->servername." port=".$this->port." dbname=".$this->dbname." user=".$this->username." password=".$this->password." sslmode=".$this->sslmode."") or die("Connection failed: ".pg_last_error());
     	/*	
 		//$con = pg_connect(pg_connection_string_from_database_url());
@@ -51,6 +57,9 @@ Class dbObj{
 			  );
 			exit();
 		} else {
+			echo json_encode(
+				array("Data2-> $servername , $username , $password , $dbname , $port , $sslmode")
+			  );
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
