@@ -34,6 +34,7 @@ Class dbObj{
 			  );
 			exit();
 		} else {
+			echo json_encode(array($con));
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
