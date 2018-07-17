@@ -11,8 +11,6 @@ Class dbObj{
 	var $dbname = "dduntehkvcp8cu";
 	var $port = "5432";
 	var $sslmode= "require";
-	
-	"Hello " . trim($world) . "!";
 	*/
 	
 	function pg_connection_string_from_database_url() {
