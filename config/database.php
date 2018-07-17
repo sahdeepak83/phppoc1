@@ -51,9 +51,6 @@ Class dbObj{
 			  );
 			exit();
 		} else {
-			echo json_encode(
-				array("$parts")
-			  );
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
