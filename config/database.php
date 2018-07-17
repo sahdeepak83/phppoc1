@@ -24,7 +24,9 @@ Class dbObj{
     	*/
 	function getConnstring() { 
 		//$con = pg_connect("host=".$this->servername." port=".$this->port." dbname=".$this->dbname." user=".$this->username." password=".$this->password." sslmode=".$this->sslmode."") or die("Connection failed: ".pg_last_error());
-    		 $con = pg_connect(pg_connection_string_from_database_url());
+    		extract(parse_url($_ENV["DATABASE_URL"]));
+  		$url = "user=$user password=$pass host=$host dbname=" . substr($path, 1);  
+		$con = pg_connect(url);
 		/* check connection */
 		if (pg_last_error()) {
 			 echo json_encode(
