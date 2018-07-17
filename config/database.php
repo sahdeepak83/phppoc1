@@ -11,11 +11,13 @@ Class dbObj{
 	var $dbname = "dduntehkvcp8cu";
 	var $port = "5432";
 	var $sslmode= "require";
+	
+	"Hello " . trim($world) . "!";
 	*/
 	
 	function pg_connection_string_from_database_url() {
   		extract(parse_url($_ENV["DATABASE_URL"]));
-  		return "user=$user password=$pass host=$host port=$port dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
+  		return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . "port=$port sslmode=require"; # <- you may want to add sslmode=require there too
 	}
 	  /*
 	 Function Name: getConnstring
