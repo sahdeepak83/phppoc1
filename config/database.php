@@ -9,17 +9,15 @@ Class dbObj{
 	var $password = "67390df03544f17e1db60bdb91c8650501d56f0c4b5267b475d3408ce47315e8";
 	var $dbname = "dduntehkvcp8cu";
 	var $port = "5432";
+	var $conn;
 	var $sslmode= "require";
 	*/
-	/*
+	var $conn;
 	function pg_connection_string_from_database_url() {
   		extract(parse_url($_ENV["DATABASE_URL"]));
-		echo json_encode(
-				array("user=$user password=$pass host=$host dbname=" . substr($path, 1) . "port=$port sslmode=$sslmode")
-			  );
-  		return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . "port=$port sslmode=$sslmode"; # <- you may want to add sslmode=require there too
-	}*/
-	
+  		return "user=$user password=$pass host=$host dbname=" . substr($path, 1) . "port=$port sslmode=require"; # <- you may want to add sslmode=require there too
+	}
+	/*
 	$parts = parse_url($_ENV["DATABASE_URL"]);
 	echo json_encode(
 				array("$parts")
@@ -30,7 +28,7 @@ Class dbObj{
 	var $dbname = substr($parts['path'], 1);
 	var $port = $parts['port'];
 	var $sslmode= "require";
-	var $conn;
+	var $conn;*/
 	  /*
 	 Function Name: getConnstring
 	 Params: NULL
@@ -39,14 +37,14 @@ Class dbObj{
 	 Description : connection for Postgres server in Heroku
     	*/
 	function getConnstring() { 
-		$con = pg_connect("host=".$this->servername." port=".$this->port." dbname=".$this->dbname." user=".$this->username." password=".$this->password." sslmode=".$this->sslmode."") or die("Connection failed: ".pg_last_error());
+		//$con = pg_connect("host=".$this->servername." port=".$this->port." dbname=".$this->dbname." user=".$this->username." password=".$this->password." sslmode=".$this->sslmode."") or die("Connection failed: ".pg_last_error());
     	/*	
 		//$con = pg_connect(pg_connection_string_from_database_url());
 		extract(parse_url($_ENV["DATABASE_URL"]));
   		$url = "user=$user password=$pass host=$host dbname=" . substr($path, 1);  
 		$con = pg_connect(url);
 	*/	
-		
+		$con = pg_connect(pg_connection_string_from_database_url());
 		/* check connection */
 		if (pg_last_error()) {
 			 echo json_encode(
