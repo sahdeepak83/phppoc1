@@ -3,13 +3,24 @@ include("config/core.php");
 Class dbObj{
 	
 	// specify your own database credentials
-	var $servername = "ec2-54-83-1-94.compute-1.amazonaws.com";
+	
+	var $servername = extract(parse_url($_ENV["servername"]));
+	var $username = extract(parse_url($_ENV["username"]));
+	var $password = extract(parse_url($_ENV["password"]));
+	var $dbname = extract(parse_url($_ENV["dbname"]));
+	var $port = extract(parse_url($_ENV["port"]));
+	var $conn;
+	var $sslmode= extract(parse_url($_ENV["sslmode"]));
+	
+	print("Hello World");
+
+	/*var $servername = "ec2-54-83-1-94.compute-1.amazonaws.com";
 	var $username = "trtclzwzsolgjp";
 	var $password = "67390df03544f17e1db60bdb91c8650501d56f0c4b5267b475d3408ce47315e8";
 	var $dbname = "dduntehkvcp8cu";
 	var $port = "5432";
 	var $conn;
-	var $sslmode= "require";
+	var $sslmode= "require";*/
 	/*
 	var $conn;
 	function pg_connection_string_from_database_url() {
