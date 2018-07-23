@@ -12,8 +12,6 @@ Class dbObj{
 	var $conn;
 	var $sslmode= extract(parse_url($_ENV["sslmode"]));
 	
-	print("Hello World");
-
 	/*var $servername = "ec2-54-83-1-94.compute-1.amazonaws.com";
 	var $username = "trtclzwzsolgjp";
 	var $password = "67390df03544f17e1db60bdb91c8650501d56f0c4b5267b475d3408ce47315e8";
