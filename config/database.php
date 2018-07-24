@@ -19,7 +19,6 @@ Class dbObj{
 	var $port = "5432";
 	var $conn;
 	var $sslmode= "require";
-	print("hello" .$this->servername.);
 	echo json_encode(
 				array(extract(parse_url($_ENV["servername"])))
 			  );
