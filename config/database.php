@@ -20,7 +20,7 @@ Class dbObj{
 	var $conn;
 	var $sslmode= "require";
 	echo json_encode(
-				array(extract(parse_url($_ENV["servername"])))
+				array(parse_url($_ENV["servername"]))
 			  );
 	var $conn;
 	function pg_connection_string_from_database_url() {
