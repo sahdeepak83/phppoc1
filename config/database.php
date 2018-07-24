@@ -12,7 +12,10 @@ Class dbObj{
 	var $conn;
 	var $sslmode= extract(parse_url($_ENV["sslmode"]));
 	*/
-	var $servername = getenv('servername');
+	public static function hostfn() {
+    		return getenv('servername');
+  	}
+	var $servername = hostfn();
 	var $username = "trtclzwzsolgjp";
 	var $password = "67390df03544f17e1db60bdb91c8650501d56f0c4b5267b475d3408ce47315e8";
 	var $dbname = "dduntehkvcp8cu";
