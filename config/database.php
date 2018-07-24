@@ -24,8 +24,7 @@ Class dbObj{
 	var $conn;
 	var $sslmode= "require";
 	function __construct() {
-		$db = new dbObj();
-		$this->servername =  $db->hostfn();
+		$this->servername = getenv('servername');
 	}
 	
 	function pg_connection_string_from_database_url() {
