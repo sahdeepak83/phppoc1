@@ -18,8 +18,11 @@ Class dbObj{
 	var $dbname = "dduntehkvcp8cu";
 	var $port = "5432";
 	var $conn;
-	var $sslmode= "require";*/
+	var $sslmode= "require";
 	print("hello" .$this->servername.);
+	echo json_encode(
+				array(extract(parse_url($_ENV["servername"])))
+			  );
 	var $conn;
 	function pg_connection_string_from_database_url() {
   		extract(parse_url($_ENV["DATABASE_URL"]));
