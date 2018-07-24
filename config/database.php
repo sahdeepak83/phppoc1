@@ -15,13 +15,18 @@ Class dbObj{
 	public static function hostfn() {
     		return getenv('servername');
   	}
-	var $servername -> hostfn();
+	
+	var $servername;
 	var $username = "trtclzwzsolgjp";
 	var $password = "67390df03544f17e1db60bdb91c8650501d56f0c4b5267b475d3408ce47315e8";
 	var $dbname = "dduntehkvcp8cu";
 	var $port = "5432";
 	var $conn;
 	var $sslmode= "require";
+	function __construct() {
+		$db = new dbObj();
+		$this->servername =  $db->hostfn();
+	}
 	
 	function pg_connection_string_from_database_url() {
   		extract(parse_url($_ENV["DATABASE_URL"]));
