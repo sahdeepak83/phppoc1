@@ -12,19 +12,20 @@ Class dbObj{
 	var $conn;
 	var $sslmode= extract(parse_url($_ENV["sslmode"]));
 	*/
-	public static function hostfn() {
-    		return getenv('servername');
-  	}
-	
 	var $servername;
-	var $username = "trtclzwzsolgjp";
-	var $password = "67390df03544f17e1db60bdb91c8650501d56f0c4b5267b475d3408ce47315e8";
-	var $dbname = "dduntehkvcp8cu";
-	var $port = "5432";
+	var $username;
+	var $password;
+	var $dbname;
+	var $port;
 	var $conn;
-	var $sslmode= "require";
+	var $sslmode;
 	function __construct() {
 		$this->servername = getenv('servername');
+		$this->username = getenv('username');
+		$this->password = getenv('password');
+		$this->dbname = getenv('dbname');
+		$this->port = getenv('port');
+		$this->sslmode = getenv('sslmode');
 	}
 	
 	function pg_connection_string_from_database_url() {
