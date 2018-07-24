@@ -19,9 +19,7 @@ Class dbObj{
 	var $port = "5432";
 	var $conn;
 	var $sslmode= "require";
-	echo json_encode(
-				array(parse_url($_ENV["servername"]))
-			  );
+	
 	var $conn;
 	function pg_connection_string_from_database_url() {
   		extract(parse_url($_ENV["DATABASE_URL"]));
@@ -62,6 +60,9 @@ Class dbObj{
 			  );
 			exit();
 		} else {
+			echo json_encode(
+				array(getenv('servername'))
+			  );
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
