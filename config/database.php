@@ -67,9 +67,6 @@ Class dbObj{
 			  );
 			exit();
 		} else {
-			echo json_encode(
-				array(getenv('servername'))
-			  );
 			 $this->conn = $con;
 		}
 		 // pg_close($con);
